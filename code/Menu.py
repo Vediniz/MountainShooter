@@ -5,7 +5,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, C_ORANGE, MENU_OPTION, C_WHITE, C_YELLOW
+from code.Const import NAME, RU, WIN_WIDTH, C_ORANGE, MENU_OPTION, C_WHITE, C_YELLOW
 
 
 class Menu:
@@ -16,6 +16,8 @@ class Menu:
 
     def run(self):
         menu_option = 0
+        name = NAME
+        ru = RU
         pygame.mixer_music.load('./asset/Menu.mp3')
         pygame.mixer_music.play(-1)
         while True:
@@ -23,6 +25,9 @@ class Menu:
             self.window.blit(source=self.surf, dest=self.rect)
             self.menu_text(50, "Mountain", C_ORANGE, ((WIN_WIDTH / 2), 70))
             self.menu_text(50, "Shooter", C_ORANGE, ((WIN_WIDTH / 2), 120))
+
+            self.menu_text(20, name, C_WHITE, ((WIN_WIDTH - 80), 20))  
+            self.menu_text(20, ru, C_WHITE, ((WIN_WIDTH - 80), 50)) 
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
